@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <!-- Title -->
+    <title>New Tab</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/image/favi.ico" />
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Js -->
+    <script defer src="js/neptab.js"></script>
+    <script defer src="js/shortcut.js"></script>
+    <script defer src="js/nepalicalendar.js"></script>
+    <script defer src="js/englishcalendar.js"></script>
+    <script defer src="js/searchbar.js"></script>
+    <script defer src="js/background.js"></script>
+    <script defer src="js/weather.js"></script>
+    <script defer src="js/date.js"></script>
+    <script defer src="js/greeting.js"></script>
+    <script defer src="js/message.js"></script>
+    <script defer src="js/clock.js"></script>
+    <script defer src="js/quote.js"></script>
+    <script defer src="js/note&todo.js"></script>
+
+</head>
+
+<body>
+
+    <div class="background" id="background">
+        <div class="background-filter">
+        </div>
+    </div>
+    <div id="quote">
+        <div id="quotes"></div>
+        <div id="author"></div>
+    </div>
+    <div class="l-widget">
+
+        <div id="weather" class="weather">
+
+            <dive class="c-weather">
+                <div id="temperature"></div>
+                <div id="location"></div>
+            </dive>
+
+            <div class="b-box weather-temp-container hide">
+                <div class="location-temperature">
+                    <h2 class="bigtemperature"></h2>
+                    <h2 class="biglocation"></h2>
+                </div>
+                <div class="weather-additional">
+                    <p>Feels Like : <span id="feels-like"></span></p>
+                    <p>Wind Speed : <span id="wind"></span></p>
+                    <p>Humidity : <span id="humidity"></span></p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="c-widget">
+
+        <div id="nointernet" class="nointernet" alt="nointernet">
+            <img src="/image/nointernet.png" alt="No Internet Connection">
+        </div>
+
+
+        <div id="greeting">
+            <span id="greetingText"></span>
+        </div>
+
+        <div class="clock" id="clock"></div>
+
+        <div id="ndate">
+            <div id="DATE_IN_NEPALI"></div>
+        </div>
+        <div id="searchbar" class="searchbar b-box">
+            <div class="search-container" id="search-container">
+                <div class="search-icon">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.8555 14.1396C21.8555 18.4029 18.4029 21.8555 14.1396 21.8555C9.87627 21.8555 6.42366 18.4029 6.42366 14.1396C6.42366 9.87627 9.87627 6.42366 14.1396 6.42366C18.4029 6.42366 21.8555 9.87627 21.8555 14.1396ZM23.1366 20.7118C24.4829 18.8661 25.2791 16.6005 25.2791 14.1396C25.2791 7.98711 20.292 3 14.1396 3C7.98711 3 3 7.98711 3 14.1396C3 20.292 7.98711 25.2791 14.1396 25.2791C16.6005 25.2791 18.8733 24.4829 20.7118 23.1366L24.0703 26.4951C24.7363 27.1683 25.822 27.1683 26.4951 26.4951C27.1683 25.8292 27.1683 24.7435 26.4951 24.0703L23.1366 20.7118Z"
+                            fill="white" />
+                    </svg>
+
+                </div>
+
+                <input class="search-bar" type="text" placeholder="Search..." id="searchInput" />
+
+            </div>
+        </div>
+
+
+
+        <div id="display-message"></div>
+
+        <!-- ------------------- Shortcut Start ------------------- -->
+
+        <div id="shortcut" class="shortcut">
+
+            <section>
+                <div class="shortcut-container c-shortcut add-btnn">
+
+                    <div class="add">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12H18M12 6V18" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <p class="add-title">Add Shortcut</p>
+
+                </div>
+            </section>
+
+            <!----------- Dialog Start ----------->
+
+            <div class="overlay"></div>
+
+            <div open class="shortcut-dialog b-box">
+
+                <form action="" class="shortcut-form">
+
+                    <p class="dialog-title">Add shortcut</p>
+
+                    <div class="n-div">
+                        <label for="name" class="name-label label_shortcut">Name</label>
+                        <input type="text" class="tab-input input-name" placeholder="Site Title">
+                    </div>
+
+                    <div class="n-div">
+                        <label for="url" class="url-label label_shortcut">URL</label>
+                        <input type="url" class="tab-input input-url" placeholder="https://">
+                    </div>
+
+                    <div class="shortcut-btn-container">
+                        <button class="btn-cancel btn_shortcut tab-btn">Cancel</button>
+                        <button type="submit" class="btn-done btn_shortcut tab-btn">Done</button>
+                    </div>
+
+                </form>
+
+            </div>
+            <!----------- Dialog End ----------->
+
+        </div>
+
+        <!-- ------------------- Shortcut End ------------------- -->
+
+    </div>
+
+    <div class="r-widget">
+
+        <div id="date" class="date b-box">
+
+            <div id="date-day"></div>
+            <div id="date-date"></div>
+        </div>
+
+        <div id="ecalendar" class="b-box">
+
+            <div class="button-container-calendar">
+                <button id="previous">&#8249;</button>
+                <h3 id="monthAndYear"></h3>
+                <button id="next">&#8250;</button>
+            </div>
+
+            <div class="tab-line-1"></div>
+
+            <table class="table-calendar" id="calendar" data-lang="en">
+                <thead id="thead-month"></thead>
+                <tbody id="calendar-body"></tbody>
+            </table>
+
+            <div class="tab-line-1"></div>
+
+            <div class="footer-container-calendar">
+                <label for="month">Jump To: </label>
+                <select id="month">
+                    <option value=0>Jan</option>
+                    <option value=1>Feb</option>
+                    <option value=2>Mar</option>
+                    <option value=3>Apr</option>
+                    <option value=4>May</option>
+                    <option value=5>Jun</option>
+                    <option value=6>Jul</option>
+                    <option value=7>Aug</option>
+                    <option value=8>Sep</option>
+                    <option value=9>Oct</option>
+                    <option value=10>Nov</option>
+                    <option value=11>Dec</option>
+                </select>
+                <select id="year"></select>
+            </div>
+        </div>
+
+        <div id="ncalendar" class="b-box">
+            <div class="month"></div>
+
+            <div class="tab-line-1"></div>
+
+            <div class="weekdays">
+                <div>आ</div>
+                <div>सो</div>
+                <div>मं</div>
+                <div>बु</div>
+                <div>बि</div>
+                <div>शु</div>
+                <div>श</div>
+            </div>
+            <div class="days"></div>
+        </div>
+
+        <div id="note" class="b-box">
+
+            <h1>Quick Note</h1>
+            <h6>Create a simple note.</h6>
+            <div class="tab-line-1"></div>
+
+            <div id="notepad" contenteditable="true"></div>
+            <button id="clear-btn">Clear</button>
+
+        </div>
+
+        <div id="todolist" class="b-box">
+
+            <h1>
+                Todo List
+            </h1>
+            <h6>Get things done, one item at a time.</h6>
+            <div class="tab-line-1"></div>
+
+            <form action="#" class="todoForm">
+                <input type="text" class="tab-input" name="item" id="item" placeholder="+  Add New Task"
+                    class="todoInput" />
+            </form>
+            <div id="emptyTodomessage">Your todo list is empty.</div>
+            <ul id="list"></ul>
+        </div>
+
+    </div>
+
+    <!-- /* ------- Setting Start ------- */ -->
+
+    <div class="sett">
+        <button id="settingBtn" class="menu b-box">
+            <?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="24px" height="24px">
+                <path fill="#FFFFFF"
+                    d="M 15 2 C 14.448 2 14 2.448 14 3 L 14 3.171875 C 14 3.649875 13.663406 4.0763437 13.191406 4.1523438 C 12.962406 4.1893437 12.735719 4.2322031 12.511719 4.2832031 C 12.047719 4.3892031 11.578484 4.1265 11.396484 3.6875 L 11.330078 3.53125 C 11.119078 3.02125 10.534437 2.7782344 10.023438 2.9902344 C 9.5134375 3.2012344 9.2704219 3.785875 9.4824219 4.296875 L 9.5488281 4.4570312 C 9.7328281 4.8970313 9.5856875 5.4179219 9.1796875 5.6699219 C 8.9836875 5.7919219 8.7924688 5.9197344 8.6054688 6.0527344 C 8.2174688 6.3297344 7.68075 6.2666875 7.34375 5.9296875 L 7.2226562 5.8085938 C 6.8316562 5.4175937 6.1985937 5.4175938 5.8085938 5.8085938 C 5.4185938 6.1995938 5.4185938 6.8326563 5.8085938 7.2226562 L 5.9296875 7.34375 C 6.2666875 7.68075 6.3297344 8.2164688 6.0527344 8.6054688 C 5.9197344 8.7924687 5.7919219 8.9836875 5.6699219 9.1796875 C 5.4179219 9.5856875 4.8960781 9.7337812 4.4550781 9.5507812 L 4.296875 9.484375 C 3.786875 9.273375 3.2002813 9.5153906 2.9882812 10.025391 C 2.7772813 10.535391 3.0192969 11.120031 3.5292969 11.332031 L 3.6855469 11.396484 C 4.1245469 11.578484 4.3892031 12.047719 4.2832031 12.511719 C 4.2322031 12.735719 4.1873906 12.962406 4.1503906 13.191406 C 4.0753906 13.662406 3.649875 14 3.171875 14 L 3 14 C 2.448 14 2 14.448 2 15 C 2 15.552 2.448 16 3 16 L 3.171875 16 C 3.649875 16 4.0763437 16.336594 4.1523438 16.808594 C 4.1893437 17.037594 4.2322031 17.264281 4.2832031 17.488281 C 4.3892031 17.952281 4.1265 18.421516 3.6875 18.603516 L 3.53125 18.669922 C 3.02125 18.880922 2.7782344 19.465563 2.9902344 19.976562 C 3.2012344 20.486563 3.785875 20.729578 4.296875 20.517578 L 4.4570312 20.451172 C 4.8980312 20.268172 5.418875 20.415312 5.671875 20.820312 C 5.793875 21.016313 5.9206875 21.208484 6.0546875 21.396484 C 6.3316875 21.784484 6.2686406 22.321203 5.9316406 22.658203 L 5.8085938 22.779297 C 5.4175937 23.170297 5.4175938 23.803359 5.8085938 24.193359 C 6.1995938 24.583359 6.8326562 24.584359 7.2226562 24.193359 L 7.3457031 24.072266 C 7.6827031 23.735266 8.2174688 23.670266 8.6054688 23.947266 C 8.7934688 24.081266 8.9856406 24.210031 9.1816406 24.332031 C 9.5866406 24.584031 9.7357344 25.105875 9.5527344 25.546875 L 9.4863281 25.705078 C 9.2753281 26.215078 9.5173438 26.801672 10.027344 27.013672 C 10.537344 27.224672 11.121984 26.982656 11.333984 26.472656 L 11.398438 26.316406 C 11.580438 25.877406 12.049672 25.61275 12.513672 25.71875 C 12.737672 25.76975 12.964359 25.814562 13.193359 25.851562 C 13.662359 25.924562 14 26.350125 14 26.828125 L 14 27 C 14 27.552 14.448 28 15 28 C 15.552 28 16 27.552 16 27 L 16 26.828125 C 16 26.350125 16.336594 25.923656 16.808594 25.847656 C 17.037594 25.810656 17.264281 25.767797 17.488281 25.716797 C 17.952281 25.610797 18.421516 25.8735 18.603516 26.3125 L 18.669922 26.46875 C 18.880922 26.97875 19.465563 27.221766 19.976562 27.009766 C 20.486563 26.798766 20.729578 26.214125 20.517578 25.703125 L 20.451172 25.542969 C 20.268172 25.101969 20.415312 24.581125 20.820312 24.328125 C 21.016313 24.206125 21.208484 24.079312 21.396484 23.945312 C 21.784484 23.668312 22.321203 23.731359 22.658203 24.068359 L 22.779297 24.191406 C 23.170297 24.582406 23.803359 24.582406 24.193359 24.191406 C 24.583359 23.800406 24.584359 23.167344 24.193359 22.777344 L 24.072266 22.654297 C 23.735266 22.317297 23.670266 21.782531 23.947266 21.394531 C 24.081266 21.206531 24.210031 21.014359 24.332031 20.818359 C 24.584031 20.413359 25.105875 20.264266 25.546875 20.447266 L 25.705078 20.513672 C 26.215078 20.724672 26.801672 20.482656 27.013672 19.972656 C 27.224672 19.462656 26.982656 18.878016 26.472656 18.666016 L 26.316406 18.601562 C 25.877406 18.419563 25.61275 17.950328 25.71875 17.486328 C 25.76975 17.262328 25.814562 17.035641 25.851562 16.806641 C 25.924562 16.337641 26.350125 16 26.828125 16 L 27 16 C 27.552 16 28 15.552 28 15 C 28 14.448 27.552 14 27 14 L 26.828125 14 C 26.350125 14 25.923656 13.663406 25.847656 13.191406 C 25.810656 12.962406 25.767797 12.735719 25.716797 12.511719 C 25.610797 12.047719 25.8735 11.578484 26.3125 11.396484 L 26.46875 11.330078 C 26.97875 11.119078 27.221766 10.534437 27.009766 10.023438 C 26.798766 9.5134375 26.214125 9.2704219 25.703125 9.4824219 L 25.542969 9.5488281 C 25.101969 9.7318281 24.581125 9.5846875 24.328125 9.1796875 C 24.206125 8.9836875 24.079312 8.7915156 23.945312 8.6035156 C 23.668312 8.2155156 23.731359 7.6787969 24.068359 7.3417969 L 24.191406 7.2207031 C 24.582406 6.8297031 24.582406 6.1966406 24.191406 5.8066406 C 23.800406 5.4156406 23.167344 5.4156406 22.777344 5.8066406 L 22.65625 5.9296875 C 22.31925 6.2666875 21.782531 6.3316875 21.394531 6.0546875 C 21.206531 5.9206875 21.014359 5.7919219 20.818359 5.6699219 C 20.413359 5.4179219 20.266219 4.8960781 20.449219 4.4550781 L 20.515625 4.296875 C 20.726625 3.786875 20.484609 3.2002812 19.974609 2.9882812 C 19.464609 2.7772813 18.879969 3.0192969 18.667969 3.5292969 L 18.601562 3.6855469 C 18.419563 4.1245469 17.950328 4.3892031 17.486328 4.2832031 C 17.262328 4.2322031 17.035641 4.1873906 16.806641 4.1503906 C 16.336641 4.0753906 16 3.649875 16 3.171875 L 16 3 C 16 2.448 15.552 2 15 2 z M 15 7 C 19.078645 7 22.438586 10.054876 22.931641 14 L 16.728516 14 A 2 2 0 0 0 15 13 A 2 2 0 0 0 14.998047 13 L 11.896484 7.625 C 12.850999 7.222729 13.899211 7 15 7 z M 10.169922 8.6328125 L 13.269531 14 A 2 2 0 0 0 13 15 A 2 2 0 0 0 13.269531 15.996094 L 10.167969 21.365234 C 8.2464258 19.903996 7 17.600071 7 15 C 7 12.398945 8.2471371 10.093961 10.169922 8.6328125 z M 16.730469 16 L 22.931641 16 C 22.438586 19.945124 19.078645 23 15 23 C 13.899211 23 12.850999 22.777271 11.896484 22.375 L 14.998047 17 A 2 2 0 0 0 15 17 A 2 2 0 0 0 16.730469 16 z" />
+            </svg>
+        </button>
+
+        <div id="setting" class="setting b-box ">
+
+            <div class="pophead">
+
+                <div class="pop-sub-head">
+                    <a href="https://chromewebstore.google.com/detail/neptab-a-beautiful-new-ta/pfbhcijkhlnpoccgnnddmfccbmkpgnio"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <img src="/image/neptab.png" alt="NepTab">
+
+                    </a>
+
+                    <div>
+                        <h3>NepTab</h3>
+                        <p>Customize Your Tab.</p>
+                    </div>
+
+                </div>
+
+                <button id="closeBtn" class="tab-btn">
+                    <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+                        <path fill="#FFFFFF"
+                            d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+                            fill="#0F1729" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="setting-conatain scroll">
+                <div class="s-switch">
+
+                    <div class="slist">Greeting
+                        <label class="switch">
+                            <input type="checkbox" id="greetSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+
+                </div>
+
+                <div id="greeting-option" class="option-box">
+                    <div class="n-div username">
+                        <label class="setting-label" for="username">Enter Username</label>
+                        <div class="setting-container">
+                            <input type="text" class="tab-input" id="username" placeholder="Enter your username">
+                            <button id="removeBtn" class="tab-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-line-1"></div>
+
+                <div class="s-switch">
+
+                    <div class="slist">Message
+                        <label class="switch">
+                            <input type="checkbox" id="messageSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div id="message-option" class="option-box">
+
+                    <div id="message-box" class="n-div">
+                        <label class="setting-label" for="username">Enter Message</label>
+
+                        <div class="setting-container">
+
+                            <input type="text" class="tab-input" id="input-message">
+                            <button id="remove-btn" class="tab-btn">Remove</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-line-1"></div>
+
+                <div class="s-switch">
+
+                    <div class="slist">
+                        Background Image
+                        <label class="switch">
+                            <input type="checkbox" id="backbgSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                </div>
+                <div id="bg-option" class="option-box">
+                    <div class="n-div">
+                        <label class="setting-label" for="backgroundImage">Background Image URL</label>
+                        <div class="setting-container">
+                            <input type="text" class="tab-input" id="backgroundImage"
+                                placeholder="Enter Background Image URL">
+                            <button id="saveBackgroundBtn" class="saveBtn tab-btn">Save</button>
+                        </div>
+                    </div>
+                    <div class="tab-line-2"></div>
+
+                    <div class="blur n-div">
+                        <div class="b-slider-container">
+                            <label for="blurRange">Background Blur intensity</label>
+                            <span id="blurValue">0%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="0" class="b-slider" id="blurRange">
+                    </div>
+                    <div class="tab-line-2"></div>
+
+                    <div class="brightness n-div">
+                        <label for="brightnessRange">Background Brightness</label>
+                        <input type="range" min="0" max="100" value="0" class="b-slider" id="brightnessRange">
+                    </div>
+                </div>
+
+                <div class="colorPicker option-box" id="colorPicker">
+                    <label for="p-color">Select Background Color</label>
+                    <input type="color" id="p-color" onchange="changeBackgroundColor()">
+                </div>
+
+                <div class="tab-line-1"></div>
+
+                <div class="s-switch">
+
+                    <div class="slist">Clock
+                        <label class="switch">
+                            <input type="checkbox" id="clockSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div id="clock-option" class="option-box">
+
+                        <div class="slist">Seconds
+                            <label class="switch">
+                                <input type="checkbox" id="show-seconds">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="tab-line-2"></div>
+
+                        <div class="slist" id="ampm">AM/PM
+                            <label class="switch">
+                                <input type="checkbox" id="show-ampm" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="tab-line-2"></div>
+
+                        <div class="slist">24-Hour Time
+                            <label class="switch">
+                                <input type="checkbox" id="hour-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <div class="tab-line-1"></div>
+
+                <div class="s-switch">
+
+                    <p class="setting-label" style="color:#fff;">Date & Calendar
+                    </p>
+
+
+                    <div class="option-box">
+
+                        <div class="slist"> English Date
+                            <label class="switch">
+                                <input type="checkbox" id="dateSwitch" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="tab-line-2"></div>
+
+                        <div class="slist">English Calendar
+                            <label class="switch">
+                                <input type="checkbox" id="ecalendarSwitch" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="tab-line-2"></div>
+
+
+                        <div class="slist">Nepali Date
+                            <label class="switch">
+                                <input type="checkbox" id="ndateSwitch" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="tab-line-2"></div>
+
+                        <div class="slist">Nepali Calendar
+                            <label class="switch">
+                                <input type="checkbox" id="ncalendarSwitch" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tab-line-1"></div>
+
+                <div class="s-switch">
+
+
+                    <div class="slist">Search Bar
+                        <label class="switch">
+                            <input type="checkbox" id="searchSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div id="search-bar-option" class="option-box">
+
+                        <div class="slist">Open in New Tab
+                            <label class="switch">
+                                <input type="checkbox" id="searchNewTab">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="tab-line-2"></div>
+
+                        <div class="slist">Search Engine
+
+                            <select id="searchengine">
+                                <option value="https://www.google.com/search?q=">Google</option>
+                                <option value="https://www.bing.com/search?q=">Bing</option>
+                                <option value="https://www.youtube.com/results?search_query=">Youtube</option>
+                                <option value="https://www.yahoo.com/search?q=">Yahoo</option>
+                                <option value="https://www.duckduckgo.com/?q=">DuckDuckGo</option>
+                                <option value="https://www.ask.com/web?q=">Ask.com</option>
+                                <option value="https://www.aol.com/search?q=">AOL</option>
+                                <option value="https://www.baidu.com/s?wd=">Baidu</option>
+                                <option value="https://www.yandex.com/search/?text=">Yandex</option>
+                                <option value="https://www.wolframalpha.com/input/?i=">WolframAlpha</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab-line-1"></div>
+
+
+                <div class="s-switch">
+                    <div class="slist">Quotes
+                        <label class="switch">
+                            <input type="checkbox" id="quoteSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+
+                    </div>
+
+                    <div id="quote-option" class="option-box">
+
+
+                        <div class="slist">Show Author
+                            <label class="switch">
+                                <input type="checkbox" id="show-author">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="tab-line-2"></div>
+
+
+                        <div class="slist">Frequency
+
+                            <select id="frequency">
+                                <option value="tab">On Tab Change</option>
+                                <option value="hourly">Every Hour</option>
+                                <option value="daily">Every Day</option>
+                                <option value="pause">Pause</option>
+                            </select>
+
+                            <button id="refreshquote" class="tab-btn">
+                                <svg fill="#ffff" height="16px" width="16px" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 489.645 489.645" xml:space="preserve">
+                                    <g>
+                                        <path d="M460.656,132.911c-58.7-122.1-212.2-166.5-331.8-104.1c-9.4,5.2-13.5,16.6-8.3,27c5.2,9.4,16.6,13.5,27,8.3
+                                    c99.9-52,227.4-14.9,276.7,86.3c65.4,134.3-19,236.7-87.4,274.6c-93.1,51.7-211.2,17.4-267.6-70.7l69.3,14.5
+                                    c10.4,2.1,21.8-4.2,23.9-15.6c2.1-10.4-4.2-21.8-15.6-23.9l-122.8-25c-20.6-2-25,16.6-23.9,22.9l15.6,123.8
+                                    c1,10.4,9.4,17.7,19.8,17.7c12.8,0,20.8-12.5,19.8-23.9l-6-50.5c57.4,70.8,170.3,131.2,307.4,68.2
+                                    C414.856,432.511,548.256,314.811,460.656,132.911z" />
+                                    </g>
+                                </svg></button>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="tab-line-1"></div>
+
+                <div class="s-switch">
+
+                    <div class="slist">Weather
+                        <label class="switch">
+                            <input type="checkbox" id="weatherSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+
+
+                    <div class="slist">Quick Note
+                        <label class="switch">
+                            <input type="checkbox" id="noteSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="slist">To Do List
+                        <label class="switch">
+                            <input type="checkbox" id="todolistSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="slist">Shortcuts
+                        <label class="switch">
+                            <input type="checkbox" id="shortcutSwitch" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="tab-line-1"></div>
+
+
+                <div class="site-manage">
+                    <label>Setting Management
+                    </label>
+                    <div class="option-box">
+                        <div class="site-tab">
+
+                            <div id="tabs">
+                                <button id="exportTabButton" class="tab-btn active">Export</button>
+                                <button id="importTabButton" class="tab-btn">Import</button>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-line-2"></div>
+
+                        <div id="exportTab" class="tab">
+
+                            <div class="site-export-container">
+                                <p>Export Site Setting</p>
+                                <button id="exportButton" class="tab-btn">Export Data</button>
+                            </div>
+
+                        </div>
+            
+                        <div id="importTab" class="tab">
+                            <p>Import Site Setting</p>
+                            <div class="site-import-container">
+                                <input type="file" id="fileInput" class="tab-input" accept=".txt">
+                                <button id="importButton" class="tab-btn">Import Data</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-line-1"></div>
+
+
+                <div class="n-div">
+                    <label>Custom CSS Style</label>
+                    <textarea class="tab-input" id="css-input" rows="10"
+                        placeholder="Enter CSS styling here..."></textarea>
+                </div>
+
+                <div class="tab-line-1"></div>
+
+
+                <div class="reset-container" id="resetButtonContainer">
+                    <button class="tab-btn reset-btn" id="resetButtonContainerButton">Reset All Settings</button>
+                </div>
+
+                <div class="reset-container" id="confirmationContainer" style="display: none;">
+                    <p>Are you sure?</p>
+                    <div class="reset-buuton-container">
+                        <button class="tab-btn" id="resetButton">I am sure</button>
+                        <button class="tab-btn" id="cancelResetButton">No, go back</button>
+                    </div>
+                </div>
+
+                <div class="tab-line-1"></div>
+
+
+
+                <div id="donate">
+                    <p>Neptab <a href="https://neptab.subarnabhandari.com">2.1.14</a></p>
+                    <p>Made in Nepal with ❤️ by <a href="https://github.com/subarnabhd">Subarna</a></p>
+
+                    <p>Consider <a href="https://subarnabhandari.com/donate">donating</a> if you love
+                        Neptab 😊</p>
+                </div>
+
+            </div>
+
+            <div class="copywrite">
+                <a href="https://subarnabhandari.com/" target="_blank" rel="noopener noreferrer">
+                    <svg width="200" height="16" viewBox="0 0 200 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_2476_33975)">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M78.226 4.49906L81.2192 0H72.7065L67.4697 7.87258L72.3647 11.1601L69.3661 15.6627H77.889L83.1324 7.79007L78.226 4.49906ZM77.2513 14.4718H71.5907L73.3539 11.8245L73.5842 11.4782L77.5697 5.49355L81.483 8.11834L77.2513 14.4718Z"
+                                fill="#C4C4C4" />
+                            <path
+                                d="M1.53131 7.96815V7.07395H3.81152C4.38902 7.07395 4.83613 6.92492 5.15283 6.62684C5.46952 6.32505 5.62787 5.90963 5.62787 5.38056V5.36937C5.62787 4.83658 5.46952 4.42115 5.15283 4.12309C4.83613 3.82501 4.38902 3.67598 3.81152 3.67598H1.53131V2.78178H4.0686C4.57533 2.78178 5.02242 2.88983 5.4099 3.10593C5.7974 3.32202 6.10105 3.62382 6.32088 4.0113C6.54442 4.3988 6.6562 4.84776 6.6562 5.35819V5.36937C6.6562 5.87982 6.54442 6.33064 6.32088 6.72186C6.10105 7.11307 5.7974 7.41859 5.4099 7.63841C5.02242 7.85824 4.57533 7.96815 4.0686 7.96815H1.53131ZM1.02832 10.8464V2.78178H2.0343V10.8464H1.02832ZM10.4901 10.9525C9.92004 10.9525 9.42636 10.8277 9.00907 10.5781C8.59551 10.3247 8.27508 9.96521 8.04781 9.49947C7.82425 9.03374 7.71248 8.48046 7.71248 7.8396V7.82843C7.71248 7.18386 7.82425 6.62871 8.04781 6.16298C8.27508 5.69725 8.59551 5.33957 9.00907 5.08994C9.42636 4.8403 9.92004 4.71549 10.4901 4.71549C11.0639 4.71549 11.5575 4.8403 11.9711 5.08994C12.3847 5.33957 12.7032 5.69725 12.9267 6.16298C13.1541 6.62871 13.2677 7.18386 13.2677 7.82843V7.8396C13.2677 8.48046 13.1541 9.03374 12.9267 9.49947C12.7032 9.96521 12.3847 10.3247 11.9711 10.5781C11.5575 10.8277 11.0639 10.9525 10.4901 10.9525ZM10.4901 10.0919C10.8701 10.0919 11.1924 10.0025 11.457 9.82362C11.7215 9.64478 11.9227 9.3877 12.0606 9.05237C12.2022 8.71705 12.2729 8.3128 12.2729 7.8396V7.82843C12.2729 7.35152 12.2022 6.94541 12.0606 6.61009C11.9227 6.27476 11.7215 6.01953 11.457 5.84442C11.1924 5.66558 10.8701 5.57616 10.4901 5.57616C10.1101 5.57616 9.78777 5.66558 9.52324 5.84442C9.2587 6.01953 9.05564 6.27476 8.91406 6.61009C8.77621 6.94541 8.70728 7.35152 8.70728 7.82843V7.8396C8.70728 8.3128 8.77621 8.71705 8.91406 9.05237C9.05564 9.3877 9.2587 9.64478 9.52324 9.82362C9.78777 10.0025 10.1101 10.0919 10.4901 10.0919ZM15.7155 10.8464L14.0278 4.82168H15.0002L16.185 9.63919H16.2744L17.6213 4.82168H18.5435L19.8904 9.63919H19.9799L21.1647 4.82168H22.1314L20.4437 10.8464H19.4657L18.1188 6.18534H18.0294L16.6881 10.8464H15.7155ZM25.6524 10.9525C25.0787 10.9525 24.5849 10.8259 24.1714 10.5725C23.7616 10.3192 23.4448 9.96147 23.2213 9.49947C23.0014 9.03374 22.8916 8.48604 22.8916 7.85637V7.85078C22.8916 7.22857 23.0014 6.68274 23.2213 6.21328C23.4448 5.74382 23.7596 5.37683 24.1658 5.11229C24.5719 4.84776 25.047 4.71549 25.591 4.71549C26.1387 4.71549 26.6081 4.84217 26.9993 5.09553C27.3942 5.34888 27.696 5.70284 27.9047 6.15739C28.1171 6.60822 28.2232 7.13357 28.2232 7.73342V8.11346H23.3946V7.33662H27.7259L27.2452 8.0464V7.66077C27.2452 7.18759 27.1744 6.79824 27.0329 6.49271C26.8912 6.18719 26.6957 5.95992 26.446 5.81089C26.1964 5.65813 25.9095 5.58175 25.5853 5.58175C25.2612 5.58175 24.9706 5.66186 24.7135 5.82206C24.4601 5.97856 24.2589 6.21141 24.1099 6.52066C23.9608 6.8299 23.8864 7.20994 23.8864 7.66077V8.0464C23.8864 8.47487 23.959 8.84186 24.1043 9.14737C24.2496 9.44917 24.4564 9.68204 24.7247 9.84598C24.9929 10.0062 25.3096 10.0863 25.6748 10.0863C25.9467 10.0863 26.1834 10.049 26.3846 9.97452C26.5858 9.9 26.7516 9.80499 26.8819 9.68948C27.0123 9.57399 27.1036 9.45663 27.1558 9.3374L27.1782 9.2871H28.1506L28.1394 9.33181C28.0872 9.53672 27.9941 9.73606 27.86 9.92981C27.7295 10.1198 27.56 10.2931 27.3514 10.4496C27.1428 10.6023 26.8949 10.7253 26.6081 10.8184C26.3249 10.9078 26.0064 10.9525 25.6524 10.9525ZM29.7322 10.8464V4.82168H30.7047V5.71588H30.7941C30.9095 5.39918 31.1052 5.15328 31.3808 4.97816C31.6566 4.80305 31.9975 4.71549 32.4036 4.71549C32.4967 4.71549 32.5881 4.72109 32.6775 4.73225C32.7706 4.73971 32.8414 4.74716 32.8899 4.75462V5.69911C32.7893 5.68048 32.6905 5.66745 32.5936 5.65999C32.5005 5.64882 32.3999 5.64323 32.2918 5.64323C31.9826 5.64323 31.7088 5.7047 31.4704 5.82765C31.2318 5.9506 31.0437 6.122 30.9059 6.34182C30.7717 6.56164 30.7047 6.81872 30.7047 7.11307V10.8464H29.7322ZM36.3829 10.9525C35.809 10.9525 35.3154 10.8259 34.9018 10.5725C34.4919 10.3192 34.1753 9.96147 33.9517 9.49947C33.7319 9.03374 33.6219 8.48604 33.6219 7.85637V7.85078C33.6219 7.22857 33.7319 6.68274 33.9517 6.21328C34.1753 5.74382 34.4901 5.37683 34.8963 5.11229C35.3023 4.84776 35.7773 4.71549 36.3213 4.71549C36.869 4.71549 37.3385 4.84217 37.7297 5.09553C38.1247 5.34888 38.4265 5.70284 38.6351 6.15739C38.8475 6.60822 38.9536 7.13357 38.9536 7.73342V8.11346H34.1249V7.33662H38.4563L37.9757 8.0464V7.66077C37.9757 7.18759 37.9048 6.79824 37.7632 6.49271C37.6217 6.18719 37.426 5.95992 37.1764 5.81089C36.9269 5.65813 36.6399 5.58175 36.3158 5.58175C35.9916 5.58175 35.701 5.66186 35.444 5.82206C35.1906 5.97856 34.9894 6.21141 34.8404 6.52066C34.6913 6.8299 34.6167 7.20994 34.6167 7.66077V8.0464C34.6167 8.47487 34.6894 8.84186 34.8347 9.14737C34.98 9.44917 35.1869 9.68204 35.455 9.84598C35.7234 10.0062 36.04 10.0863 36.4052 10.0863C36.6772 10.0863 36.9137 10.049 37.1149 9.97452C37.3161 9.9 37.4819 9.80499 37.6124 9.68948C37.7428 9.57399 37.8341 9.45663 37.8863 9.3374L37.9085 9.2871H38.881L38.8699 9.33181C38.8177 9.53672 38.7246 9.73606 38.5903 9.92981C38.46 10.1198 38.2905 10.2931 38.0818 10.4496C37.8731 10.6023 37.6254 10.7253 37.3385 10.8184C37.0553 10.9078 36.7367 10.9525 36.3829 10.9525ZM42.687 10.9525C42.1802 10.9525 41.7369 10.824 41.3569 10.5669C40.9767 10.3098 40.6824 9.94843 40.4738 9.4827C40.2652 9.01325 40.1608 8.46555 40.1608 7.8396V7.82843C40.1608 7.19876 40.2652 6.65106 40.4738 6.18534C40.6824 5.7196 40.9749 5.35819 41.3512 5.10112C41.7313 4.84404 42.1765 4.71549 42.687 4.71549C42.9626 4.71549 43.2216 4.76021 43.4638 4.84963C43.7097 4.93531 43.9277 5.05641 44.1177 5.21289C44.3077 5.36937 44.4567 5.55566 44.5648 5.77177H44.6542V2.42969H45.6266V10.8464H44.6542V9.8851H44.5648C44.4418 10.1087 44.2872 10.3005 44.101 10.4607C43.9146 10.6172 43.7023 10.7383 43.4638 10.824C43.2253 10.9097 42.9664 10.9525 42.687 10.9525ZM42.9105 10.0919C43.2757 10.0919 43.5905 10.0006 43.8551 9.81802C44.1195 9.63546 44.3226 9.37652 44.4642 9.04119C44.6058 8.70215 44.6765 8.30161 44.6765 7.8396V7.82843C44.6765 7.3627 44.6058 6.96217 44.4642 6.62684C44.3226 6.29152 44.1195 6.03258 43.8551 5.85001C43.5905 5.66745 43.2757 5.57616 42.9105 5.57616C42.5454 5.57616 42.2306 5.66745 41.966 5.85001C41.7052 6.02884 41.504 6.28593 41.3624 6.62125C41.2246 6.95658 41.1557 7.35898 41.1557 7.82843V7.8396C41.1557 8.30534 41.2246 8.70772 41.3624 9.04678C41.504 9.38211 41.7052 9.64105 41.966 9.82362C42.2306 10.0025 42.5454 10.0919 42.9105 10.0919ZM53.7079 10.9525C53.4285 10.9525 53.1696 10.9097 52.9312 10.824C52.6926 10.7383 52.4803 10.6172 52.2941 10.4607C52.1077 10.3005 51.9531 10.1087 51.8301 9.8851H51.7407V10.8464H50.7683V2.42969H51.7407V5.77177H51.8301C51.9419 5.55566 52.091 5.36937 52.2772 5.21289C52.4673 5.05641 52.6834 4.93531 52.9255 4.84963C53.1714 4.76021 53.4323 4.71549 53.7079 4.71549C54.2184 4.71549 54.6618 4.84404 55.0381 5.10112C55.4182 5.35819 55.7125 5.7196 55.9212 6.18534C56.1297 6.65106 56.2341 7.19876 56.2341 7.82843V7.8396C56.2341 8.46555 56.1297 9.01325 55.9212 9.4827C55.7125 9.94843 55.4182 10.3098 55.0381 10.5669C54.6618 10.824 54.2184 10.9525 53.7079 10.9525ZM53.4844 10.0919C53.8532 10.0919 54.1682 10.0025 54.4289 9.82362C54.6897 9.64105 54.889 9.38211 55.027 9.04678C55.1685 8.70772 55.2393 8.30534 55.2393 7.8396V7.82843C55.2393 7.35898 55.1685 6.95658 55.027 6.62125C54.889 6.28593 54.6897 6.02884 54.4289 5.85001C54.1682 5.66745 53.8532 5.57616 53.4844 5.57616C53.1193 5.57616 52.8044 5.66745 52.54 5.85001C52.2754 6.03258 52.0724 6.29152 51.9307 6.62684C51.7891 6.96217 51.7184 7.3627 51.7184 7.82843V7.8396C51.7184 8.30161 51.7891 8.70215 51.9307 9.04119C52.0724 9.37652 52.2754 9.63546 52.54 9.81802C52.8044 10.0006 53.1193 10.0919 53.4844 10.0919ZM58.0337 12.9589C57.9704 12.9589 57.8995 12.9552 57.8213 12.9477C57.7431 12.944 57.6705 12.9366 57.6034 12.9254V12.1262C57.663 12.1373 57.7282 12.1448 57.7989 12.1485C57.8697 12.1523 57.9387 12.1541 58.0058 12.1541C58.2814 12.1541 58.5069 12.0833 58.682 11.9418C58.8608 11.8002 59.0043 11.5561 59.1123 11.2096L59.2241 10.852L56.9942 4.82168H58.0337L59.8891 10.3881L59.5035 9.7789H59.9618L59.5761 10.3881L61.426 4.82168H62.4488L60.0959 11.2152C59.932 11.666 59.7588 12.0181 59.5761 12.2715C59.3936 12.5248 59.1794 12.7018 58.9335 12.8024C58.6913 12.9067 58.3913 12.9589 58.0337 12.9589Z"
+                                fill="#C4C4C4" />
+                            <path
+                                d="M91.0309 10.9574C90.5428 10.9574 90.1181 10.8866 89.7567 10.745C89.3952 10.5997 89.1084 10.4004 88.8959 10.147C88.6837 9.88996 88.5588 9.59189 88.5215 9.25284V9.24166H89.7399V9.25284C89.8181 9.48012 89.9671 9.66454 90.187 9.80613C90.4068 9.94771 90.6974 10.0185 91.0588 10.0185C91.3085 10.0185 91.5264 9.9831 91.7127 9.91231C91.9027 9.84151 92.0517 9.74278 92.1598 9.6161C92.2679 9.48943 92.3219 9.34412 92.3219 9.18018V9.16901C92.3219 8.97898 92.2455 8.81878 92.0928 8.68837C91.94 8.55797 91.6885 8.45178 91.3382 8.36981L90.3658 8.14626C89.9858 8.06056 89.671 7.9432 89.4214 7.79416C89.1717 7.64514 88.9873 7.46257 88.868 7.24647C88.7488 7.02665 88.6892 6.76956 88.6892 6.47522V6.46963C88.6892 6.11568 88.7898 5.80271 88.991 5.53072C89.1922 5.25501 89.4698 5.04077 89.8238 4.88801C90.1814 4.73153 90.5894 4.65328 91.0476 4.65328C91.5097 4.65328 91.9121 4.72594 92.2549 4.87125C92.6014 5.01283 92.8752 5.2103 93.0764 5.46366C93.2776 5.71328 93.3968 6.0039 93.434 6.3355V6.34109H92.2716V6.32991C92.2157 6.11754 92.0816 5.94056 91.8692 5.79898C91.6605 5.65739 91.3849 5.58661 91.0421 5.58661C90.8222 5.58661 90.6267 5.62201 90.4552 5.69279C90.2839 5.75986 90.1479 5.85486 90.0473 5.97783C89.9504 6.09704 89.902 6.23863 89.902 6.40256V6.41374C89.902 6.54043 89.9337 6.6522 89.997 6.74907C90.064 6.84221 90.1683 6.92604 90.3099 7.00056C90.4515 7.07136 90.6341 7.13469 90.8576 7.19059L91.8245 7.40855C92.4057 7.54641 92.8379 7.74573 93.1211 8.00654C93.408 8.26735 93.5514 8.61757 93.5514 9.05722V9.06841C93.5514 9.441 93.4415 9.77073 93.2217 10.0576C93.0018 10.3408 92.702 10.5625 92.3219 10.7227C91.9456 10.8792 91.5152 10.9574 91.0309 10.9574ZM97.0164 10.9574C96.5619 10.9574 96.1781 10.8699 95.8652 10.6947C95.5559 10.5159 95.3231 10.2588 95.1665 9.92349C95.0138 9.58444 94.9374 9.17645 94.9374 8.69955V4.77065H96.1502V8.41453C96.1502 8.91378 96.249 9.28824 96.4464 9.53786C96.6439 9.78749 96.9662 9.91231 97.4133 9.91231C97.6517 9.91231 97.8641 9.87691 98.0504 9.80613C98.2367 9.73161 98.3932 9.62542 98.5198 9.48756C98.6465 9.34971 98.7397 9.18391 98.7993 8.99016C98.8626 8.79642 98.8943 8.5766 98.8943 8.33069V4.77065H100.113V10.84H98.8943V9.92349H98.8049C98.708 10.1396 98.5757 10.3259 98.4081 10.4824C98.2404 10.6351 98.0392 10.7525 97.8045 10.8345C97.5734 10.9164 97.3108 10.9574 97.0164 10.9574ZM105.087 10.9406C104.803 10.9406 104.543 10.8997 104.304 10.8177C104.066 10.732 103.853 10.6109 103.667 10.4544C103.484 10.2942 103.335 10.1042 103.22 9.88437H103.125V10.84H101.912V2.38984H103.125V5.73191H103.22C103.328 5.51209 103.475 5.32394 103.661 5.16745C103.848 5.00724 104.062 4.88428 104.304 4.7986C104.546 4.70918 104.807 4.66447 105.087 4.66447C105.601 4.66447 106.046 4.79301 106.422 5.05009C106.799 5.30344 107.089 5.66485 107.294 6.13431C107.499 6.60377 107.602 7.15891 107.602 7.79975V7.81094C107.602 8.44806 107.497 9.00135 107.289 9.4708C107.084 9.94025 106.793 10.3035 106.417 10.5606C106.04 10.814 105.597 10.9406 105.087 10.9406ZM104.74 9.90113C105.079 9.90113 105.37 9.8173 105.612 9.64963C105.854 9.48197 106.039 9.24166 106.165 8.92868C106.296 8.61572 106.361 8.24313 106.361 7.81094V7.79975C106.361 7.36384 106.296 6.99125 106.165 6.68201C106.039 6.36903 105.854 6.12872 105.612 5.96106C105.37 5.78967 105.079 5.70397 104.74 5.70397C104.405 5.70397 104.114 5.78967 103.868 5.96106C103.622 6.12872 103.434 6.36903 103.304 6.68201C103.173 6.99497 103.108 7.36756 103.108 7.79975V7.81094C103.108 8.23941 103.173 8.612 103.304 8.92868C103.434 9.24166 103.622 9.48197 103.868 9.64963C104.114 9.8173 104.405 9.90113 104.74 9.90113ZM110.709 10.9406C110.325 10.9406 109.981 10.868 109.675 10.7227C109.373 10.5736 109.135 10.3631 108.96 10.0912C108.784 9.81916 108.697 9.5006 108.697 9.13548V9.1243C108.697 8.75916 108.784 8.44806 108.96 8.19097C109.138 7.93389 109.396 7.73269 109.731 7.58738C110.07 7.43836 110.48 7.34894 110.96 7.31913L113.201 7.185V8.04008L111.128 8.1742C110.711 8.20029 110.403 8.28971 110.206 8.44247C110.008 8.5915 109.91 8.80201 109.91 9.074V9.08518C109.91 9.36089 110.016 9.57885 110.228 9.73906C110.441 9.89554 110.709 9.97379 111.033 9.97379C111.335 9.97379 111.603 9.91418 111.838 9.79495C112.076 9.672 112.263 9.50806 112.397 9.30314C112.531 9.09449 112.598 8.85976 112.598 8.59895V6.6876C112.598 6.35227 112.494 6.09704 112.285 5.92194C112.08 5.74309 111.774 5.65367 111.368 5.65367C111.029 5.65367 110.752 5.71328 110.536 5.83251C110.323 5.95174 110.182 6.11941 110.111 6.3355L110.1 6.35227H108.932L108.937 6.31315C108.986 5.97783 109.118 5.6872 109.334 5.4413C109.554 5.19167 109.841 4.99792 110.195 4.86007C110.552 4.72221 110.96 4.65328 111.419 4.65328C111.929 4.65328 112.361 4.73525 112.715 4.89919C113.073 5.05941 113.343 5.29227 113.526 5.59779C113.712 5.89957 113.805 6.26285 113.805 6.6876V10.84H112.598V9.97937H112.508C112.389 10.1843 112.24 10.3594 112.061 10.5047C111.883 10.6463 111.68 10.7543 111.452 10.8289C111.225 10.9034 110.977 10.9406 110.709 10.9406ZM115.515 10.84V4.77065H116.728V5.6872H116.823C116.931 5.36306 117.121 5.11156 117.393 4.93272C117.669 4.75389 118.008 4.66447 118.41 4.66447C118.511 4.66447 118.61 4.67006 118.706 4.68122C118.803 4.69241 118.882 4.70544 118.941 4.72035V5.8381C118.833 5.81574 118.725 5.79898 118.617 5.7878C118.513 5.77662 118.403 5.77103 118.287 5.77103C117.978 5.77103 117.706 5.83065 117.471 5.94988C117.24 6.0691 117.058 6.23677 116.924 6.45286C116.793 6.66524 116.728 6.9186 116.728 7.21294V10.84H115.515ZM120.199 10.84V4.77065H121.412V5.6872H121.507C121.655 5.36306 121.876 5.10971 122.166 4.92714C122.456 4.74457 122.824 4.65328 123.267 4.65328C123.949 4.65328 124.471 4.84889 124.832 5.2401C125.194 5.63132 125.374 6.18833 125.374 6.91114V10.84H124.155V7.19618C124.155 6.68945 124.049 6.31315 123.837 6.06724C123.629 5.81761 123.301 5.69279 122.854 5.69279C122.559 5.69279 122.303 5.758 122.088 5.88841C121.872 6.01508 121.703 6.19765 121.585 6.4361C121.47 6.67083 121.412 6.95213 121.412 7.28001V10.84H120.199ZM128.727 10.9406C128.343 10.9406 127.998 10.868 127.694 10.7227C127.391 10.5736 127.153 10.3631 126.978 10.0912C126.803 9.81916 126.715 9.5006 126.715 9.13548V9.1243C126.715 8.75916 126.803 8.44806 126.978 8.19097C127.156 7.93389 127.414 7.73269 127.749 7.58738C128.088 7.43836 128.498 7.34894 128.978 7.31913L131.22 7.185V8.04008L129.147 8.1742C128.729 8.20029 128.421 8.28971 128.224 8.44247C128.026 8.5915 127.927 8.80201 127.927 9.074V9.08518C127.927 9.36089 128.035 9.57885 128.247 9.73906C128.459 9.89554 128.727 9.97379 129.051 9.97379C129.353 9.97379 129.621 9.91418 129.856 9.79495C130.095 9.672 130.28 9.50806 130.415 9.30314C130.549 9.09449 130.617 8.85976 130.617 8.59895V6.6876C130.617 6.35227 130.512 6.09704 130.303 5.92194C130.098 5.74309 129.792 5.65367 129.386 5.65367C129.048 5.65367 128.77 5.71328 128.554 5.83251C128.342 5.95174 128.2 6.11941 128.129 6.3355L128.118 6.35227H126.95L126.955 6.31315C127.003 5.97783 127.136 5.6872 127.353 5.4413C127.572 5.19167 127.859 4.99792 128.213 4.86007C128.571 4.72221 128.978 4.65328 129.437 4.65328C129.948 4.65328 130.379 4.73525 130.733 4.89919C131.091 5.05941 131.361 5.29227 131.544 5.59779C131.73 5.89957 131.824 6.26285 131.824 6.6876V10.84H130.617V9.97937H130.526C130.407 10.1843 130.259 10.3594 130.079 10.5047C129.901 10.6463 129.697 10.7543 129.471 10.8289C129.243 10.9034 128.995 10.9406 128.727 10.9406ZM136.764 10.9406C136.48 10.9406 136.22 10.8997 135.982 10.8177C135.743 10.732 135.531 10.6109 135.344 10.4544C135.161 10.2942 135.013 10.1042 134.897 9.88437H134.802V10.84H133.589V2.38984H134.802V5.73191H134.897C135.006 5.51209 135.153 5.32394 135.338 5.16745C135.525 5.00724 135.739 4.88428 135.982 4.7986C136.224 4.70918 136.484 4.66447 136.764 4.66447C137.278 4.66447 137.723 4.79301 138.1 5.05009C138.476 5.30344 138.766 5.66485 138.971 6.13431C139.177 6.60377 139.279 7.15891 139.279 7.79975V7.81094C139.279 8.44806 139.174 9.00135 138.966 9.4708C138.761 9.94025 138.471 10.3035 138.094 10.5606C137.718 10.814 137.274 10.9406 136.764 10.9406ZM136.418 9.90113C136.756 9.90113 137.047 9.8173 137.289 9.64963C137.531 9.48197 137.715 9.24166 137.842 8.92868C137.973 8.61572 138.038 8.24313 138.038 7.81094V7.79975C138.038 7.36384 137.973 6.99125 137.842 6.68201C137.715 6.36903 137.531 6.12872 137.289 5.96106C137.047 5.78967 136.756 5.70397 136.418 5.70397C136.082 5.70397 135.791 5.78967 135.545 5.96106C135.3 6.12872 135.112 6.36903 134.98 6.68201C134.85 6.99497 134.785 7.36756 134.785 7.79975V7.81094C134.785 8.23941 134.85 8.612 134.98 8.92868C135.112 9.24166 135.3 9.48197 135.545 9.64963C135.791 9.8173 136.082 9.90113 136.418 9.90113ZM140.777 10.84V2.38984H141.989V5.6872H142.084C142.233 5.36306 142.453 5.10971 142.744 4.92714C143.035 4.74457 143.401 4.65328 143.844 4.65328C144.296 4.65328 144.678 4.74084 144.99 4.91596C145.303 5.09107 145.542 5.34815 145.706 5.6872C145.87 6.02253 145.951 6.43051 145.951 6.91114V10.84H144.733V7.19618C144.733 6.68945 144.627 6.31315 144.415 6.06724C144.206 5.81761 143.878 5.69279 143.431 5.69279C143.137 5.69279 142.882 5.758 142.666 5.88841C142.449 6.01508 142.282 6.19765 142.162 6.4361C142.047 6.67083 141.989 6.95213 141.989 7.28001V10.84H140.777ZM149.304 10.9406C148.921 10.9406 148.577 10.868 148.271 10.7227C147.97 10.5736 147.731 10.3631 147.555 10.0912C147.38 9.81916 147.292 9.5006 147.292 9.13548V9.1243C147.292 8.75916 147.38 8.44806 147.555 8.19097C147.735 7.93389 147.991 7.73269 148.327 7.58738C148.666 7.43836 149.076 7.34894 149.556 7.31913L151.797 7.185V8.04008L149.724 8.1742C149.307 8.20029 149 8.28971 148.802 8.44247C148.604 8.5915 148.506 8.80201 148.506 9.074V9.08518C148.506 9.36089 148.612 9.57885 148.824 9.73906C149.037 9.89554 149.305 9.97379 149.629 9.97379C149.931 9.97379 150.2 9.91418 150.433 9.79495C150.672 9.672 150.859 9.50806 150.992 9.30314C151.127 9.09449 151.194 8.85976 151.194 8.59895V6.6876C151.194 6.35227 151.09 6.09704 150.88 5.92194C150.676 5.74309 150.371 5.65367 149.965 5.65367C149.625 5.65367 149.348 5.71328 149.132 5.83251C148.919 5.95174 148.778 6.11941 148.707 6.3355L148.696 6.35227H147.527L147.533 6.31315C147.582 5.97783 147.714 5.6872 147.93 5.4413C148.15 5.19167 148.437 4.99792 148.791 4.86007C149.148 4.72221 149.556 4.65328 150.014 4.65328C150.525 4.65328 150.958 4.73525 151.312 4.89919C151.668 5.05941 151.939 5.29227 152.121 5.59779C152.308 5.89957 152.401 6.26285 152.401 6.6876V10.84H151.194V9.97937H151.105C150.985 10.1843 150.836 10.3594 150.658 10.5047C150.478 10.6463 150.276 10.7543 150.048 10.8289C149.821 10.9034 149.573 10.9406 149.304 10.9406ZM154.112 10.84V4.77065H155.324V5.6872H155.419C155.568 5.36306 155.788 5.10971 156.078 4.92714C156.37 4.74457 156.736 4.65328 157.179 4.65328C157.861 4.65328 158.383 4.84889 158.744 5.2401C159.106 5.63132 159.286 6.18833 159.286 6.91114V10.84H158.068V7.19618C158.068 6.68945 157.962 6.31315 157.749 6.06724C157.541 5.81761 157.213 5.69279 156.766 5.69279C156.472 5.69279 156.217 5.758 156 5.88841C155.784 6.01508 155.617 6.19765 155.497 6.4361C155.382 6.67083 155.324 6.95213 155.324 7.28001V10.84H154.112ZM163.188 10.9406C162.68 10.9406 162.237 10.814 161.858 10.5606C161.48 10.3035 161.189 9.94025 160.98 9.4708C160.774 9.00135 160.672 8.44806 160.672 7.81094V7.79975C160.672 7.15891 160.774 6.60377 160.98 6.13431C161.185 5.66485 161.476 5.30344 161.851 5.05009C162.227 4.79301 162.673 4.66447 163.188 4.66447C163.467 4.66447 163.727 4.70918 163.97 4.7986C164.212 4.88428 164.426 5.00724 164.613 5.16745C164.798 5.32394 164.945 5.51209 165.054 5.73191H165.143V2.38984H166.362V10.84H165.143V9.88437H165.054C164.935 10.1042 164.784 10.2942 164.601 10.4544C164.419 10.6109 164.208 10.732 163.97 10.8177C163.731 10.8997 163.471 10.9406 163.188 10.9406ZM163.533 9.90113C163.87 9.90113 164.16 9.8173 164.406 9.64963C164.651 9.48197 164.839 9.24166 164.971 8.92868C165.101 8.612 165.166 8.23941 165.166 7.81094V7.79975C165.166 7.36756 165.098 6.99497 164.965 6.68201C164.835 6.36903 164.645 6.12872 164.4 5.96106C164.158 5.78967 163.87 5.70397 163.533 5.70397C163.198 5.70397 162.908 5.78967 162.662 5.96106C162.42 6.12872 162.233 6.36903 162.103 6.68201C161.977 6.99125 161.913 7.36384 161.913 7.79975V7.81094C161.913 8.24313 161.977 8.61572 162.103 8.92868C162.233 9.24166 162.42 9.48197 162.662 9.64963C162.908 9.8173 163.198 9.90113 163.533 9.90113ZM169.827 10.9406C169.443 10.9406 169.098 10.868 168.792 10.7227C168.491 10.5736 168.253 10.3631 168.078 10.0912C167.902 9.81916 167.815 9.5006 167.815 9.13548V9.1243C167.815 8.75916 167.902 8.44806 168.078 8.19097C168.256 7.93389 168.513 7.73269 168.849 7.58738C169.188 7.43836 169.597 7.34894 170.078 7.31913L172.319 7.185V8.04008L170.245 8.1742C169.829 8.20029 169.521 8.28971 169.324 8.44247C169.126 8.5915 169.027 8.80201 169.027 9.074V9.08518C169.027 9.36089 169.133 9.57885 169.347 9.73906C169.559 9.89554 169.827 9.97379 170.151 9.97379C170.453 9.97379 170.721 9.91418 170.956 9.79495C171.194 9.672 171.38 9.50806 171.514 9.30314C171.649 9.09449 171.715 8.85976 171.715 8.59895V6.6876C171.715 6.35227 171.612 6.09704 171.403 5.92194C171.198 5.74309 170.892 5.65367 170.486 5.65367C170.147 5.65367 169.87 5.71328 169.654 5.83251C169.441 5.95174 169.3 6.11941 169.229 6.3355L169.218 6.35227H168.049L168.055 6.31315C168.103 5.97783 168.236 5.6872 168.451 5.4413C168.672 5.19167 168.959 4.99792 169.313 4.86007C169.671 4.72221 170.078 4.65328 170.537 4.65328C171.047 4.65328 171.479 4.73525 171.833 4.89919C172.191 5.05941 172.461 5.29227 172.643 5.59779C172.83 5.89957 172.923 6.26285 172.923 6.6876V10.84H171.715V9.97937H171.626C171.507 10.1843 171.359 10.3594 171.179 10.5047C171.001 10.6463 170.797 10.7543 170.57 10.8289C170.343 10.9034 170.095 10.9406 169.827 10.9406ZM174.633 10.84V4.77065H175.845V5.6872H175.941C176.049 5.36306 176.239 5.11156 176.511 4.93272C176.786 4.75389 177.126 4.66447 177.529 4.66447C177.629 4.66447 177.727 4.67006 177.824 4.68122C177.921 4.69241 178 4.70544 178.059 4.72035V5.8381C177.951 5.81574 177.843 5.79898 177.735 5.7878C177.631 5.77662 177.52 5.77103 177.406 5.77103C177.096 5.77103 176.824 5.83065 176.589 5.94988C176.359 6.0691 176.176 6.23677 176.042 6.45286C175.912 6.66524 175.845 6.9186 175.845 7.21294V10.84H174.633ZM179.244 10.84V4.77065H180.462V10.84H179.244ZM179.859 3.68643C179.65 3.68643 179.471 3.61191 179.323 3.46288C179.173 3.31385 179.098 3.13501 179.098 2.92636C179.098 2.71771 179.173 2.54073 179.323 2.39543C179.471 2.24639 179.65 2.17188 179.859 2.17188C180.067 2.17188 180.247 2.24639 180.395 2.39543C180.544 2.54073 180.619 2.71771 180.619 2.92636C180.619 3.13501 180.544 3.31385 180.395 3.46288C180.247 3.61191 180.067 3.68643 179.859 3.68643Z"
+                                fill="#C4C4C4" />
+                            <path
+                                d="M183.068 10.9014C182.922 10.9014 182.799 10.8508 182.698 10.7496C182.599 10.6484 182.55 10.5272 182.55 10.3861C182.55 10.2402 182.599 10.1178 182.698 10.019C182.799 9.92013 182.922 9.87072 183.068 9.87072C183.216 9.87072 183.34 9.92013 183.439 10.019C183.538 10.1178 183.587 10.2402 183.587 10.3861C183.587 10.5272 183.538 10.6484 183.439 10.7496C183.34 10.8508 183.216 10.9014 183.068 10.9014ZM186.231 10.919C185.859 10.919 185.538 10.839 185.267 10.679C184.999 10.5167 184.792 10.286 184.646 9.9872C184.5 9.68834 184.427 9.33184 184.427 8.91768V8.91062C184.427 8.50352 184.499 8.1529 184.643 7.85875C184.788 7.56461 184.996 7.33754 185.264 7.17751C185.534 7.0175 185.856 6.9375 186.227 6.9375C186.55 6.9375 186.826 6.99397 187.057 7.10692C187.29 7.21752 187.475 7.37048 187.611 7.56579C187.75 7.75875 187.837 7.97876 187.873 8.22585L187.876 8.2435H187.138L187.134 8.23644C187.092 8.04819 186.994 7.8917 186.841 7.76698C186.688 7.63991 186.485 7.57638 186.231 7.57638C186.02 7.57638 185.837 7.6305 185.684 7.73875C185.531 7.84464 185.414 7.9976 185.331 8.19761C185.251 8.39763 185.211 8.63531 185.211 8.91062V8.91768C185.211 9.20007 185.252 9.44244 185.334 9.64481C185.417 9.84719 185.534 10.0037 185.687 10.1143C185.84 10.2225 186.021 10.2766 186.231 10.2766C186.471 10.2766 186.665 10.2237 186.814 10.1178C186.964 10.0119 187.07 9.85542 187.131 9.64834L187.138 9.63069L187.873 9.62716L187.865 9.65892C187.821 9.90837 187.729 10.1272 187.593 10.3155C187.457 10.5037 187.275 10.652 187.046 10.7602C186.821 10.8661 186.549 10.919 186.231 10.919ZM190.364 10.919C189.99 10.919 189.667 10.839 189.393 10.679C189.123 10.519 188.915 10.2908 188.769 9.99426C188.623 9.6954 188.55 9.34125 188.55 8.9318V8.92474C188.55 8.51293 188.623 8.15879 188.769 7.86228C188.917 7.56579 189.127 7.33754 189.397 7.17751C189.67 7.0175 189.992 6.9375 190.364 6.9375C190.738 6.9375 191.061 7.0175 191.332 7.17751C191.602 7.33517 191.81 7.56344 191.956 7.86228C192.104 8.15879 192.179 8.51293 192.179 8.92474V8.9318C192.179 9.34125 192.104 9.6954 191.956 9.99426C191.81 10.2908 191.602 10.519 191.332 10.679C191.063 10.839 190.74 10.919 190.364 10.919ZM190.364 10.2766C190.584 10.2766 190.769 10.2237 190.922 10.1178C191.075 10.0095 191.191 9.85542 191.271 9.6554C191.351 9.45538 191.391 9.21417 191.391 8.9318V8.92474C191.391 8.64001 191.351 8.39763 191.271 8.19761C191.191 7.9976 191.075 7.84464 190.922 7.73875C190.769 7.6305 190.584 7.57638 190.364 7.57638C190.145 7.57638 189.959 7.6305 189.806 7.73875C189.653 7.84464 189.535 7.9976 189.453 8.19761C189.374 8.39763 189.333 8.64001 189.333 8.92474V8.9318C189.333 9.21417 189.374 9.45538 189.453 9.6554C189.535 9.85542 189.653 10.0095 189.806 10.1178C189.959 10.2237 190.145 10.2766 190.364 10.2766ZM193.09 10.8449V7.01162H193.855V7.60109H193.915C194 7.38931 194.132 7.22575 194.31 7.11045C194.492 6.99515 194.708 6.9375 194.959 6.9375C195.134 6.9375 195.291 6.96573 195.429 7.02221C195.568 7.07868 195.687 7.15869 195.786 7.26223C195.887 7.36342 195.965 7.48343 196.022 7.62227H196.082C196.146 7.48343 196.235 7.36342 196.351 7.26223C196.465 7.15869 196.6 7.07868 196.753 7.02221C196.909 6.96573 197.073 6.9375 197.247 6.9375C197.506 6.9375 197.727 6.98809 197.911 7.08927C198.094 7.1881 198.234 7.33164 198.331 7.5199C198.427 7.70815 198.475 7.93523 198.475 8.20114V10.8449H197.71V8.38469C197.71 8.2082 197.682 8.06231 197.628 7.94701C197.574 7.82934 197.492 7.7411 197.381 7.68227C197.273 7.62344 197.137 7.59403 196.971 7.59403C196.81 7.59403 196.667 7.63168 196.545 7.70698C196.424 7.77992 196.331 7.87876 196.262 8.00348C196.197 8.12584 196.163 8.26468 196.163 8.41998V10.8449H195.398V8.30703C195.398 8.16114 195.367 8.03525 195.306 7.92936C195.247 7.8211 195.162 7.73875 195.052 7.68227C194.941 7.62344 194.81 7.59403 194.659 7.59403C194.506 7.59403 194.369 7.63403 194.247 7.71404C194.127 7.79404 194.032 7.90229 193.961 8.03878C193.891 8.17291 193.855 8.32351 193.855 8.49058V10.8449H193.09Z"
+                                fill="#C4C4C4" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_2476_33975">
+                                <rect width="200" height="15.6627" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- /* ------- Setting End ------- */ -->
+
+</body>
+
+</html>
