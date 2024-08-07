@@ -20,11 +20,13 @@
             font-size: 16px;
             border-radius: 12px;
         }
-        h1{
+
+        h1 {
             font-size: 16px;
             color: white;
             font-weight: 100;
         }
+
         button {
             width: 300px;
             margin: 0px auto;
@@ -45,20 +47,21 @@
         canvas {
             border: 1px solid #ccc;
             width: 100%;
-            /* max-width: 1920px; */
             height: auto;
         }
-        .download{
+
+        .download {
             background-color: #FFB448;
             color: white;
             text-decoration: uppercase;
             border: none;
             font-weight: 600;
             padding: 12px 18px;
-            border-radius: 12px ;
-            margin:30px 10px;
+            border-radius: 12px;
+            margin: 30px 10px;
         }
-         .download:hover{
+
+        .download:hover {
             background-color: #b26902;
         }
     </style>
@@ -67,8 +70,7 @@
 <body>
     <div class="container">
         <h1>INVITATION CARD</h1>
-        <input type="text" id="overlay-text" placeholder="Enter text to overlay"> 
-        <!-- <button onclick="updateImage()">Update Image</button><br><br> -->
+        <input type="text" id="overlay-text" placeholder="Enter text to overlay">
         <button onclick="downloadImage()" class="download">Download</button>
 
         <div id="canvas-container">
@@ -106,8 +108,10 @@
 
         function downloadImage() {
             updateImage();  // Ensure text is drawn before downloading
+            const text = document.getElementById('overlay-text').value.trim();
+            const fileName = text ? `${text}.png` : 'edited-image.png';  // Default name if input is empty
             const link = document.createElement('a');
-            link.download = 'edited-image.png';
+            link.download = fileName;
             link.href = canvas.toDataURL();
             link.click();
         }
