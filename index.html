@@ -10,6 +10,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
+            background-color: #00180c;
         }
 
         input {
@@ -18,10 +19,12 @@
             padding: 10px;
             font-size: 16px;
         }
-
+        h1{
+            color: white;
+        }
         button {
             width: 300px;
-            margin: 5px auto;
+            margin: 0px auto;
             padding: 10px;
             font-size: 16px;
         }
@@ -47,7 +50,7 @@
 
 <body>
     <div class="container">
-        <h1>Enter Name</h1>
+        <h1>INVITATION CARD</h1>
         <input type="text" id="overlay-text" placeholder="Enter text to overlay"><br><br>
         <button onclick="updateImage()">Update Image</button><br><br>
         <div id="canvas-container">
@@ -63,7 +66,7 @@
         img.src = 'invitation.jpg';  // Ensure this path is correct
 
         img.onload = function () {
-            updateImage();
+            updateImage(); // Update image when it loads
         };
 
         function updateImage() {
@@ -72,18 +75,14 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous content
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);  // Draw the image
 
-            ctx.font = '30px Arial';
+            ctx.font = '36px Arial';
             ctx.fillStyle = '#FEB44A'; // Set text color to #FEB44A
             ctx.textAlign = 'center'; // Center the text horizontally
             ctx.textBaseline = 'middle'; // Center the text vertically
 
-            // Calculate text width and height
-            const textWidth = ctx.measureText(text).width;
-            const textHeight = parseInt(ctx.font, 10);
-
             // Calculate position to center the text
             const x = canvas.width / 2;
-            const y = canvas.height / 2;
+            const y = 290; // Fixed Y position
 
             ctx.fillText(text, x, y);  // Draw the text at the calculated position
         }
@@ -95,6 +94,9 @@
             link.href = canvas.toDataURL();
             link.click();
         }
+
+        // Ensure text is updated when input changes
+        document.getElementById('overlay-text').addEventListener('input', updateImage);
     </script>
 </body>
 
