@@ -111,14 +111,14 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous content
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);  // Draw the image
 
-            ctx.font = '48px Fjalla One';
+            ctx.font = '52px Fjalla One';
             ctx.fillStyle = '#FEB44A'; // Set text color to #FEB44A
             ctx.textAlign = 'center'; // Center the text horizontally
             ctx.textBaseline = 'middle'; // Center the text vertically
 
             // Calculate position to center the text
             const x = canvas.width / 2;
-            const y = 285; // Fixed Y position
+            const y = 282; // Fixed Y position
 
             ctx.fillText(text, x, y);  // Draw the text at the calculated position
         }
